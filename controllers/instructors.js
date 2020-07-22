@@ -72,8 +72,7 @@ exports.post = (req, res) => {
     gender,
     services,
     created_at
-  }
-  )// [{}]
+  })// [{}]
 
   //escrevendo no arquivo
   //primeiro é o caminho !
@@ -84,8 +83,7 @@ exports.post = (req, res) => {
   fs.writeFile("data.json", JSON.stringify(data, null, 2), function (err) {
 
     if (err) { return res.send("Write file error!") }
-    return res.send("instrutor criado")
-    return res.render('views/instructors')
+    res.redirect(`/instructors`)
   })
 
   //return res.send(req.body)
