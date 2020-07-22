@@ -1,0 +1,35 @@
+{% extends "layout.njk" %}
+{% block content %}
+
+  <div class="card">
+    <section class="avatar" style="background: url({{member.avatar_url}})no-repeat center center / cover"></section>
+    <form method="POST" action="/members?_method=PUT">
+      <!-- USANDO METHOD OVERWRTIE-->
+
+      <section class="details">
+        <h3>EDITAR MEMBRO</h3>
+        <!-- incluir arquivo externo via nunjucks -->
+
+        {%include 'members/fields.njk' %}
+        <input type="hidden" name="id" value="{{member.id}}">
+
+      </form>
+      <form action="/members?_method=DELETE" method="post" id="form-delete">
+        <input type="hidden" name="id" value="{{member.id}}">
+        <button type="submit">Deletar</button>
+      </form>
+    </section>
+    <script>
+      const formDelete = document.querySelector("#form-delete")
+      formDelete.addEventListener("submit", function(event){  
+        //pegando o evento do submit
+        const confirmation = confirm("Tem certeza que deseja deletar ?")
+        if(!confirmation){
+            event.preventDefault()//Cancelando o padrão que é o evento deletar
+        }
+      })
+    </script>
+
+  </div>
+
+{% endblock content %}

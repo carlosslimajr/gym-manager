@@ -1,0 +1,38 @@
+{% extends "layout.njk" %}
+{% block content %}
+
+  <div class="card">
+    <section class="avatar" style="background: url({{instructor.avatar_url}})no-repeat center center / cover"></section>
+    <form method="POST" action="/instructors?_method=PUT">
+      <!-- USANDO METHOD OVERWRTIE-->
+
+      <section class="details">
+        <h3>EDITAR INSTRUTOR</h3>
+        <!-- incluir arquivo externo via nunjucks -->
+
+        {%include 'instructors/fields.njk' %}
+        <input type="hidden" name="id" value="{{instructor.id}}">
+
+      </form>
+      <form action="/instructors?_method=DELETE" method="post" id="form-delete">
+        <input type="hidden" name="id" value="{{instructor.id}}">
+        <button type="submit">Deletar</button>
+      </form>
+    </section>
+
+   
+
+  </div>
+
+    <script>
+      const formDelete = document.querySelector("#form-delete")
+      formDelete.addEventListener("submit", function(event){  
+        //pegando o evento do submit
+        const confirmation = confirm("Tem certeza que deseja deletar ?")
+        if(!confirmation){
+            event.preventDefault()//Cancelando o padrão que é o evento deletar
+        }
+      })
+    </script>
+
+{% endblock content %}
