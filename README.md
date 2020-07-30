@@ -4,7 +4,7 @@
  - Express JS 4.17
  - NunjucksJS 3.2.1
  - Method-overrideJS 3.0.0
- - 
+ - PostgreeSQL
 
 ## Install
  1.  Be sure to have NodeJS v12.16.1 or later
@@ -15,4 +15,4 @@
  1. Execute npm start
 
  ## Todo
- - Database
+ - Add Pagination
