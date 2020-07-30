@@ -27,7 +27,8 @@ module.exports = {
        month,
         year,
          iso: `${year}-${month}-${day}`,
-         birthday: `${year}-${month}`
+         birthday: `${day}-${month}`,
+         format: `${day}/${month}/${year}`,//para o db
     }
     // return `${year}-${month}-${day}`
 

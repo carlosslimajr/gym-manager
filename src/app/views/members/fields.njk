@@ -43,17 +43,27 @@
       <option value="O-" {% if member.blood=="O-"%}selected{%endif%}>O-</option>
     </select>
   </div>
+</div>
   <div class="item">
     <div>Peso (kg)</div>
     <div>
-      <input type="number" name="weigth" value="{{member.weigth}}">
+      <input type="number" name="weight" value="{{member.weight}}">
     </div>
+  </div>
     <div class="item">
     <div>Altura (cm)</div>
     <div>
       <input type="number" name="height" value="{{member.height}}">
     </div>
   </div>
+  <div class="item">
+  <div>Instrutor</div>
+  <div>
+    <select name="instructor">
+      {%for instructor in instructorOptions %}
+      <option value="{{instructor.id}}" {% if member.instructor== instructor.id%}selected{%endif%}>{{instructor.name}}</option>
+      {%endfor%}
+    </select>
   </div>
 </div>
 

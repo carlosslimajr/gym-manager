@@ -11,13 +11,11 @@ server.use(express.static('public'))//Usando a pasta public para puxar os estilo
 server.use(methodOverride('_method'))//puxando o methodoverride
 server.use(routes) //Puxando as rotas
 
-
-
 //essa linha faz funcionar o req.body. outro middleware
 
 server.set("view engine", "njk")//Tornando padrão do server para não precisar ficar colocando .html/.njk
 
-nunjucks.configure("views", {
+nunjucks.configure("src/app/views", {
   express: server, //nome da variavel
   autoescape: false,
   noCache: true
